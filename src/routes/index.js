@@ -14,7 +14,6 @@ const Routes = () => (
     <Stack.Navigator initialRouteName='Main'>
       <Stack.Screen name='Main' component={Main} />
       <Stack.Screen name='Contacts' component={Contacts} />
-
     </Stack.Navigator>
   </NavigationContainer>
 );
