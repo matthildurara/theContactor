@@ -4,15 +4,17 @@ import {View,Text,TouchableOpacity,TextInput} from 'react-native';
 import {AntDesign} from '@expo/vector-icons';
 import styles from './styles';
 
-const Toolbar = ({ value,onSearch,onAdd
-
-
+const Toolbar = ({
+  onAdd,
+  search,
+  setSearch,
+  searchString
 }) => (
 
-    <View style={styles.toolbar}>
+    <View styleName= "horizontal" style={styles.toolbar}>
       <TouchableOpacity style={styles.toolbarAction}>
         <TextInput
-          value={search}
+          value={searchString}
           setValue={setSearch}
           placeholder="Search"
           search={search}
@@ -21,12 +23,12 @@ const Toolbar = ({ value,onSearch,onAdd
 
           <TouchableOpacity
           style={styles.toolbarAction}
-          onPress={() => onAdd}>
+          onPress={() => onAdd()}>
             <Text> Add new Contact </Text>
           </TouchableOpacity>
 
           </View>
 
 );
-}
+
 export default Toolbar;

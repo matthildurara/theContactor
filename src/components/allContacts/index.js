@@ -1,22 +1,29 @@
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
-import { Text,View,Image,TouchableOpacity,TouchableHighlight} from 'react-native';
+import { FlatList,Text,View,Image,TouchableOpacity,TouchableHighlight} from 'react-native';
 import styles from './styles';
+import ContactThumbnail from '../ContactThumbnail';
 
-const contactsList = (
+
+const AllContacts = ({contacts}) => {
+  return(
   <View style = {styles.listContainer}>
     <FlatList
-    numColumns={1}
-    renderItem={({ item: {  name, thumbnailPhoto, description } }) => (
-        <BoardThumbnail
-          name={'Bertha'}
-          thumbnailPhoto={':)'}
-          description={'Skemmtilegt'}
+      numColumns={1}
+      data={contacts}
+      renderItem={({ item: {  id, name, image } }) => (
+        <ContactThumbnail
+          navigation={navigation}
+          id={id}
+          name={name}
+          Image={image}
 
         />
-    )} />
+    )}
+    keyExtractor={item => item.name.toString()} />
   </View>
 
 );
+}
 
-export default contactsList;
+export default AllContacts;

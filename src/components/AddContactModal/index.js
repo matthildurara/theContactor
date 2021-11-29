@@ -5,7 +5,7 @@ import {View,Text,TextInput,Button,TouchableOpacity} from 'react-native';
 import Modal from '../Modal';
 import styles from './styles';
 import { takePhoto, selectFromCameraRoll } from '../../services/imageServices';
-
+import {addContact} from '../../services/fileService';
 
 const AddContactModal = ({
     isOpen,
@@ -20,7 +20,7 @@ const AddContactModal = ({
   return (
     <Modal
     isOpen={isOpen}
-    closeModal={closeModal}
+    closeModal={closeModal}>
       <View style={styles.addContact}>
           <Text style={styles.addContactText}> Add Contact </Text>
       </View>
@@ -58,26 +58,26 @@ const AddContactModal = ({
         onPress={async () => {
           const i = await takePhoto();
           setImage(i);}}
-        >
+         >
         <Entypo style={styles.icon} name="camera"/>
       </TouchableOpacity>
 
       <TouchableOpacity
         onPress={async () => {
           const i = await selectFromCameraRoll();
-          setImage(i);}}>
+          setImage(i);}}
+        >
         <Entypo style={styles.icon} name="image"/>
       </TouchableOpacity>
 
       <View style={styles.container}>
         <TouchableOpacity
           onPress={() => {
-            addContact={(name,phone,image);
+            addContact(name,phone,image);
             setName('');
             setPhone('');
             setImage('')
-            closeModal()
-            disabled= {!(name === ''|| phonelength !== 7 || photo )};}}>
+            closeModal()}}>
           <Text style={[styles.textAccept,!(name === ''|| phonelength !== 7 || photo === '')
           ? {}: {color:'rgba(155,155,155,0.5)'}]}>Ok</Text>
         </TouchableOpacity>
