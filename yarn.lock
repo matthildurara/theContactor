@@ -1814,6 +1814,7 @@
     "object-visit" "^1.0.0"
 
 "color-convert@^1.9.0":
+  "integrity" "sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg=="
   "resolved" "https://registry.npmjs.org/color-convert/-/color-convert-1.9.3.tgz"
   "version" "1.9.3"
   dependencies:
@@ -2254,7 +2255,7 @@
   "resolved" "https://registry.npmjs.org/expo-status-bar/-/expo-status-bar-1.1.0.tgz"
   "version" "1.1.0"
 
-"expo@*", "expo@~43.0.2":
+"expo@*", "expo@^43.0.3":
   "resolved" "https://registry.npmjs.org/expo/-/expo-43.0.3.tgz"
   "version" "43.0.3"
   dependencies:
