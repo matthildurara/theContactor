@@ -2213,7 +2213,8 @@
   "resolved" "https://registry.npmjs.org/expo-error-recovery/-/expo-error-recovery-3.0.4.tgz"
   "version" "3.0.4"
 
-"expo-file-system@~13.0.3":
+"expo-file-system@^13.0.3", "expo-file-system@~13.0.3":
+  "integrity" "sha512-i65brB1Nd0upWigXMXrN4YSvj5cP77tB4hNCXoWYVaqRKpUnVlEku2FjQ/xVfIWLJMYrFHHC0Kgz/OKsNzQTpg=="
   "resolved" "https://registry.npmjs.org/expo-file-system/-/expo-file-system-13.0.3.tgz"
   "version" "13.0.3"
   dependencies:
