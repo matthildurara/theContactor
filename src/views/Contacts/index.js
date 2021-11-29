@@ -15,6 +15,9 @@ const Main = () => {
 const [isAddModalOpen,setIsAddModalOpen] = useState(false);
 const [contacts,setContacts]=useState([]);
 const [searchString,setSearch]= useState('');
+const [name, setName]=useState('');
+const [phone, setPhone]=useState('');
+const [image, setImage]=useState([])
 
 useEffect(()=> {
   (async () => {

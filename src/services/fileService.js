@@ -1,4 +1,5 @@
 import * as FileSystem from 'expo-file-system';
+import * as Contacts from 'expo-contacts'
 
 const contactsDir = `${FileSystem.documentsDirectory}contacts`;
 
@@ -46,3 +47,12 @@ const setupDirectory = async () => {
     await FileSystem.makeDirectoryAsync(contactsDir);
   }
 }
+
+// export const Data = async () => {
+//   await setupDirectory();
+//   const newContact = {name: contact.name, phone: contact.phone, image: contact.image};
+//   const fileName = `${documentsDirectory}.json`;
+//   await FileSystem.writeAsStringAsync(fileName, JSON.stringify(newContact));
+//
+//
+// };

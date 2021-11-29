@@ -14,7 +14,7 @@ const AddContactModal = ({
 }) => {
   const [name,setName] = useState('');
   const [phone,setPhone] = useState('');
-  const [image,setImage] = useState('');
+  const [image,setImage] = useState([]);
 
 
   return (
@@ -78,7 +78,7 @@ const AddContactModal = ({
             setPhone('');
             setImage('')
             closeModal()}}>
-          <Text style={[styles.textAccept,!(name === ''|| phonelength !== 7 || photo === '')
+          <Text style={[styles.textAccept,!(name === ''|| phone.length !== 7 || image === '')
           ? {}: {color:'rgba(155,155,155,0.5)'}]}>Ok</Text>
         </TouchableOpacity>
       </View>
