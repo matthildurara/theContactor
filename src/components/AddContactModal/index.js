@@ -74,6 +74,9 @@ const AddContactModal = ({
         <TouchableOpacity
           onPress={() => {
             addContact(name,phone,image);
+            console.log(name);
+            console.log(phone);
+            console.log(image);
             setName('');
             setPhone('');
             setImage('')

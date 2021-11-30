@@ -2,10 +2,10 @@ import React, {useState,useEffect} from 'react';
 import {View,Text,TouchableHighlight,Image} from 'react-native';
 //import logo from '../../resources/logo.png';
 import styles from './styles';
-import Toolbar from '../../components/Toolbar';
+import Toolbar from '../../components/toolbar';
 import AddContactModal from '../../components/AddContactModal';
 import * as fileService from '../../services/fileService';
-import AllContacts from '../../components/AllContacts';
+import AllContacts from '../../components/allContacts';
 
 
 
@@ -43,7 +43,7 @@ return (
     <AddContactModal
       isOpen={isAddModalOpen}
       closeModal={()=> setIsAddModalOpen(false)}
-      addContact={(name,phone,image) => addNewContact(name,phone,image)}
+      addContact={(name,phone,image) => addNewContact(name,phone)}
       />
 
       <AllContacts
