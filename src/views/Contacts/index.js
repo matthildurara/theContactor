@@ -54,6 +54,13 @@ const addNewContact = async (name,phone,image) => {
   setContacts([...contacts,newContact]);
   setIsAddModalOpen(false);
 }
+  const searchContacts = (contacts) => {
+    let filteredContacts = contacts.filter(function(item) {
+      return item.toLowerCase().includes(searchString.toLowerCase());
+    });
+    return filteredData;
+
+  };
 
 return (
   <View style={styles.container}>
@@ -69,8 +76,9 @@ return (
       />
 
       <AllContacts
-      contacts={contacts}
+      contacts={(contacts) => searchContacts(contacts)}
       navigation={navigation}
+      searchString={searchString}
       />
   </View>
 )
