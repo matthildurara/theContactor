@@ -2,7 +2,7 @@ import React, {useState,useEffect} from 'react';
 import {View,Text,TouchableHighlight,Image} from 'react-native';
 //import logo from '../../resources/logo.png';
 import styles from './styles';
-import Toolbar from '../../components/toolbar';
+import Toolbar from '../../components/Toolbar';
 import AddContactModal from '../../components/AddContactModal';
 import * as fileService from '../../services/fileService';
 import AllContacts from '../../components/AllContacts';
