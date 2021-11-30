@@ -20,7 +20,7 @@ const AllContacts = ({contacts,navigation}) => {
 
         />
     )}
-    keyExtractor={item => item.id.toString()} />
+    keyExtractor={(contact) => (contact).id} />
   </View>
 
 );

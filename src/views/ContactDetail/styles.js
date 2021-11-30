@@ -11,5 +11,8 @@ export default StyleSheet.create({
   paragraph:{
     textAlign: 'center',
     color: 'white'
+  },
+  edit:{
+    flex:1
   }
 });

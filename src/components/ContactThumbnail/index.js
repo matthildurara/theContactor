@@ -9,8 +9,8 @@ import {AntDesign} from '@expo/vector-icons';
 const ContactThumbnail = ({navigation,id,name,image}) => {
   const {navigate} = useNavigation();
   return (
-    <TouchableOpacity>
-    onPress={() => navigate('ContactDetail',{id})}
+    <TouchableOpacity
+    onPress={() => navigate('ContactDetail',{id:id})}>
       <View style={styles.contact}>
         <Image style={styles.contactImage} source={{uri:`data:image/jpeg;base64,${image}`}}/>
 

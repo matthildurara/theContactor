@@ -1,30 +1,44 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text,ImageBackground } from 'react-native';
+import { View, Text,ImageBackground,TouchableOpacity } from 'react-native';
 import * as fileService from '../../services/fileService';
 import styles from './styles';
-import ContactThumbnail from '../../components/ContactThumbnail';
+//import ContactThumbnail from '../../components/ContactThumbnail';
+import AllContactDetail from '../../components/AllContactDetail';
 
 const ContactDetail = ({route}) => {
+  const {id} = route.params;
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [contact, setContact] = useState([]);
 
-  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-  const [contcats, setContacts] = useState([]);
+  console.log(id);
 
   useEffect(()=> {
     (async ()=> {
-      const contcats = await fileService.getAllContacts();
-      const contact = contacts.id;
-      console.log(contact)
+      const contacts = await fileService.getAllContacts();
+      //console.log(contacts);
+      const findContact = contacts.filter(c=>c.id === id)
+      setContact(findContact);
+      console.log(findContact);
 
     })();
 
   },[]);
   return (
     <View style={styles.container}>
-    <Toolbar
-      onAdd={()=> setIsAddModalOpen(true)}    />
+      <TouchableOpacity
+        style={styles.edit}>
+        <Text> Edit</Text>
+      </TouchableOpacity>
       <AllContactDetail
-      contacts={contacts}
-      />
+        contact={findContact}/>
+        // <View>
+        //   <Text style={styles.edit}>
+        //     {contact.name}
+        //   </Text>
+        //   <Text style={styles.edit}>
+        //     {contact.phone}
+        //   </Text>
+        // </View>
     </View>
 
 

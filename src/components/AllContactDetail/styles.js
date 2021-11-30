@@ -13,6 +13,9 @@ export default StyleSheet.create({
 
 
   },
+  contactItemText:{
+    color:'black',
+  },
   button:{
     width:115
   }

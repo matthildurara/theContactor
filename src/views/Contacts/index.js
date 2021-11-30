@@ -16,31 +16,21 @@ const Contacts = (navigation) => {
 const [isAddModalOpen,setIsAddModalOpen] = useState(false);
 const [contacts,setContacts]= useState([]);
 const [searchString,setSearch]= useState('');
-// const [name, setName]=useState('');
-// const [phone, setPhone]=useState('');
-// const [image, setImage]=useState([])
+const [name, setName]=useState('');
+const [phone, setPhone]=useState('');
+const [image, setImage]=useState([])
 
 useEffect(()=> {
   (async () => {
     const contacts = await fileService.getAllContacts();
-    //.sort((a,b)=> a.name.localCompare(b.name))
-    // .sort(function(a,b) {
-    //   if(a.name.toLowerCase() < b.name.toLowerCase()) return -1;
-    //   if(a.name.toLowerCase()> b.name.toLowerCase()) return 1;
-    //   return 0;
-    // })
-    // .map((item,i) => <List key{i} data=item)
     const sortedContacts = contacts.sort((a,b) => a.name.localeCompare(b.name));
     setContacts(sortedContacts);
-    console.log(sortedContacts);
+    //setContacts(contacts);
+    //console.log(sortedContacts);
   })();
 },[]);
 
-// const orderContacts = () => {
-//
-// }
 const addNewContact = async (name,phone,image) => {
-  //  id :uuid.v4();
   const newC = {
     "id": uuid.v4(),
     "name": name,
@@ -48,9 +38,9 @@ const addNewContact = async (name,phone,image) => {
     "image":image,
   }
   const newContact = await fileService.addContact(newC);
-  console.log(newC);
-  console.log(newContact);
-  console.log(contacts);
+  //console.log(newC);
+  //console.log(newContact);
+  //console.log(contacts);
   setContacts([...contacts,newContact]);
   setIsAddModalOpen(false);
 }
@@ -76,7 +66,8 @@ return (
       />
 
       <AllContacts
-      contacts={(contacts) => searchContacts(contacts)}
+      //contacts={(contacts) => searchContacts(contacts)}
+      contacts={contacts}
       navigation={navigation}
       searchString={searchString}
       />
