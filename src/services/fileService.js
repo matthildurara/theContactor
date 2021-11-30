@@ -1,7 +1,7 @@
 import * as FileSystem from 'expo-file-system';
-import * as Contacts from 'expo-contacts'
+import * as Contacts from 'expo-contacts';
 
-const contactsDir = `${FileSystem.documentsDirectory}contacts`;
+const contactsDir = `${FileSystem.documentDirectory}contacts`;
 
 const onExeption = (cb,errorHandler) => {
   try {
@@ -20,21 +20,32 @@ export const writeToFile = async (file, location) => {
 
 export const addContact = async contact => {
   const str = contact.name;
-  const valid = str.replace(/\s/g,'')
-  const validString = valid.replace(/[^A-Za-z0-9\s-]/g,'');
+  const string = str.replace(/ /g,"_");
+  const strName = string + "-" + contact.id + ".JSON";
+  //const jsonName = JSON.stringify(strName);
   const jsonCon = JSON.stringify(contact);
-  await onExeption(()=> FileSystem.writeAsStringAsync(jsonCon, `${contactsDir}/${validString}`));
+  console.log(strName);
+  console.log(`${contactsDir}/${strName}`);
+  await onExeption(()=> FileSystem.writeAsStringAsync (`${contactsDir}/${strName}`,jsonCon));
 
   return{
+    id:contact.id,
     name: contact.name,
     phone: contact.phone,
-    image: await loadImage(validString)
+    image: contact.image,
   };
   }
 
+const loadContacts = async(strName) => {
+  const getCont = await FileSystem.readAsStringAsync(`${contactsDir}/${strName}`,);
+return JSON.parse(getCont);
+};
+
 export const getAllContacts = async () => {
   await setupDirectory();
-}
+  const contactsResult = await onExeption(() =>FileSystem.readDirectoryAsync(contactsDir));
+  return Promise.all(contactsResult.map(async (strName) => loadContacts(strName)));
+};
 
 export const loadImage = async fileName => {
     return await onException(() => FileSystem.readAsStringAsync(`${contactsDir}/${fileName}`, {

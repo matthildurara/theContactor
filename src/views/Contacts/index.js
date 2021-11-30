@@ -6,29 +6,40 @@ import Toolbar from '../../components/Toolbar';
 import AddContactModal from '../../components/AddContactModal';
 import * as fileService from '../../services/fileService';
 import AllContacts from '../../components/AllContacts';
+import uuid from 'react-native-uuid';
 
 
 
 
-const Main = () => {
+const Contacts = (navigation) => {
 
 const [isAddModalOpen,setIsAddModalOpen] = useState(false);
-const [contacts,setContacts]=useState([]);
+const [contacts,setContacts]= useState([]);
 const [searchString,setSearch]= useState('');
-const [name, setName]=useState('');
-const [phone, setPhone]=useState('');
-const [image, setImage]=useState([])
+// const [name, setName]=useState('');
+// const [phone, setPhone]=useState('');
+// const [image, setImage]=useState([])
 
 useEffect(()=> {
   (async () => {
     const contacts = await fileService.getAllContacts();
-    setContacts(contact);
-
+    setContacts(contacts);
+    console.log(contacts);
   })();
 },[]);
 
-const addNewContact = async contact => {
-  const newContact = await fileService.addContact(contact);
+const addNewContact = async (name,phone,image) => {
+  //  id :uuid.v4();
+  const newC = {
+    "id": uuid.v4(),
+    "name": name,
+    "phone":phone,
+    "image":image,
+  }
+  const newContact = await fileService.addContact(newC);
+  console.log(newC);
+  console.log(newContact);
+  console.log(contacts);
   setContacts([...contacts,newContact]);
   setIsAddModalOpen(false);
 }
@@ -48,6 +59,7 @@ return (
 
       <AllContacts
       contacts={contacts}
+      navigation={navigation}
       />
   </View>
 )
@@ -55,4 +67,4 @@ return (
 
 
 
-export default Main;
+export default Contacts;

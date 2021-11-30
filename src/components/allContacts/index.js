@@ -5,7 +5,7 @@ import styles from './styles';
 import ContactThumbnail from '../ContactThumbnail';
 
 
-const AllContacts = ({contacts}) => {
+const AllContacts = ({contacts,navigation}) => {
   return(
   <View style = {styles.listContainer}>
     <FlatList
@@ -20,7 +20,7 @@ const AllContacts = ({contacts}) => {
 
         />
     )}
-    keyExtractor={item => item.name.toString()} />
+    keyExtractor={item => item.id.toString()} />
   </View>
 
 );

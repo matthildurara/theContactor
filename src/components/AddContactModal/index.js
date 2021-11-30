@@ -14,8 +14,8 @@ const AddContactModal = ({
 }) => {
   const [name,setName] = useState('');
   const [phone,setPhone] = useState('');
-  const [image,setImage] = useState([]);
-
+  const [image,setImage] = useState('');
+  //async addNewContact = async
 
   return (
     <Modal
@@ -56,16 +56,16 @@ const AddContactModal = ({
       </View>
       <TouchableOpacity
         onPress={async () => {
-          const i = await takePhoto();
-          setImage(i);}}
+          const image = await takePhoto();
+          setImage(image);}}
          >
         <Entypo style={styles.icon} name="camera"/>
       </TouchableOpacity>
 
       <TouchableOpacity
         onPress={async () => {
-          const i = await selectFromCameraRoll();
-          setImage(i);}}
+          const image = await selectFromCameraRoll();
+          setImage(image);}}
         >
         <Entypo style={styles.icon} name="image"/>
       </TouchableOpacity>
@@ -76,8 +76,10 @@ const AddContactModal = ({
             addContact(name,phone,image);
             setName('');
             setPhone('');
-            setImage('')
-            closeModal()}}>
+            setImage('');
+            closeModal()}}
+            disabled={name === ''|| phone.length !== 7 || image === ''}
+            >
           <Text style={[styles.textAccept,!(name === ''|| phone.length !== 7 || image === '')
           ? {}: {color:'rgba(155,155,155,0.5)'}]}>Ok</Text>
         </TouchableOpacity>
