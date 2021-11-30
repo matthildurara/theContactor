@@ -43,7 +43,7 @@ return (
     <AddContactModal
       isOpen={isAddModalOpen}
       closeModal={()=> setIsAddModalOpen(false)}
-      addContact={(name,phone,image) => addNewContact(name,phone)}
+      addContact={(name,phone,image) => addNewContact(name,phone,image)}
       />
 
       <AllContacts
