@@ -20,7 +20,9 @@ export const writeToFile = async (file, location) => {
 
 export const addContact = async contact => {
   const str = contact.name;
-  const string = str.replace(/ /g,"_");
+  const validString = str.replace(/[^A-Za-z0-9\s-]/g, '');
+  console.log(validString);
+  const string = validString.replace(/ /g,"_");
   const strName = string + "-" + contact.id + ".JSON";
   //const jsonName = JSON.stringify(strName);
   const jsonCon = JSON.stringify(contact);

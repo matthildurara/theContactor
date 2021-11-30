@@ -23,11 +23,22 @@ const [searchString,setSearch]= useState('');
 useEffect(()=> {
   (async () => {
     const contacts = await fileService.getAllContacts();
-    setContacts(contacts);
-    console.log(contacts);
+    //.sort((a,b)=> a.name.localCompare(b.name))
+    // .sort(function(a,b) {
+    //   if(a.name.toLowerCase() < b.name.toLowerCase()) return -1;
+    //   if(a.name.toLowerCase()> b.name.toLowerCase()) return 1;
+    //   return 0;
+    // })
+    // .map((item,i) => <List key{i} data=item)
+    const sortedContacts = contacts.sort((a,b) => a.name.localeCompare(b.name));
+    setContacts(sortedContacts);
+    console.log(sortedContacts);
   })();
 },[]);
 
+// const orderContacts = () => {
+//
+// }
 const addNewContact = async (name,phone,image) => {
   //  id :uuid.v4();
   const newC = {
