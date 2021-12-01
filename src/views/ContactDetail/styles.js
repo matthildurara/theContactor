@@ -2,27 +2,24 @@ import {StyleSheet} from 'react-native';
 import {lightBlue} from '../../styles/colors';
 
 export default StyleSheet.create({
-  // container: {
-  //   flexDirection: 'row',
-  //   alignItems: 'center',
-  //   justifyContent: 'center',
-  //   height: 70,
-  //   backgroundColor:lightBlue
-  // },
   container: {
-    flex:1,
-    padding:19,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 70,
     backgroundColor: lightBlue,
-    justifyContent: 'space-around'
   },
   paragraph:{
     textAlign: 'center',
     color: 'white',
+    backgroundColor: lightBlue,
   },
   contactBorder:{
     borderStyle: 'solid',
     borderWidth: 2,
     paddingHorizontal: 1,
+    backgroundColor: lightBlue,
+
 
   },
   name:{
@@ -30,7 +27,10 @@ export default StyleSheet.create({
     fontSize: 30,
     fontWeight: "600",
 		alignSelf: 'center',
-		justifyContent: 'center'
+		justifyContent: 'center',
+    backgroundColor: lightBlue,
+
+
   },
   number:{
     marginTop: 40,
@@ -39,13 +39,15 @@ export default StyleSheet.create({
     fontSize: 30,
     fontWeight: "600",
 		alignSelf: 'center',
-		justifyContent: 'center'
+		justifyContent: 'center',
+    backgroundColor: lightBlue,
   },
 
   toolbarAction:{
   fontWeight:'bold',
   color: 'black',
-  fontSize: 16
+  fontSize: 16,
+  backgroundColor: lightBlue,
 },
   image:{
     flex:1,
@@ -54,9 +56,15 @@ export default StyleSheet.create({
   paddingRight:80,
   marginBottom:25,
   marginRight:25,
-  width:130,
+  width:140,
   height:150,
   margin:10,
-  alignSelf: 'center'
+  alignSelf: 'center',
+  backgroundColor: lightBlue,
+},
+icon: {
+  fontSize: 20,
+  marginTop: 20,
+  marginBottom: 20,
 },
 });

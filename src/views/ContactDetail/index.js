@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text,ImageBackground,TouchableOpacity,Image } from 'react-native';
 import * as fileService from '../../services/fileService';
 import styles from './styles';
+import {Entypo} from '@expo/vector-icons';
 
 
 const ContactDetail = ({route}) => {
@@ -28,14 +29,14 @@ const ContactDetail = ({route}) => {
   },[]);
 
   return (
-    <View>
-      <View styleName= "horizontal" style={styles.container}>
+    <View >
+      <View styleName= "horizontal" style={styles.container} >
         <TouchableOpacity style={styles.toolbarAction}
         //onPress={()=> setIsEditModalOpen(true)}
           >
           <Text> Edit</Text>
         </TouchableOpacity>
-        </View>
+          </View>
         <Image style={styles.image}
           resizeMode="cover"
           source={{ uri: contact.image }}
@@ -47,13 +48,17 @@ const ContactDetail = ({route}) => {
           </Text>
           </View>
           <View >
+
           <Text style={styles.number}>
             {contact.phone}
+            <Entypo style={styles.icon} name="phone" />
           </Text>
 
         </View>
 
+
     </View>
+
 
 
 )
