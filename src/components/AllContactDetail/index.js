@@ -12,7 +12,6 @@ const AllContactsDetail = ({contacts}) => {
       data={contacts}
       renderItem={({ item: {  id, name, image } }) => (
         <ContactThumbnail
-          navigation={navigation}
           id={id}
           name={name}
           Image={image}
