@@ -6,6 +6,7 @@ import Modal from '../Modal';
 import styles from './styles';
 import { takePhoto, selectFromCameraRoll } from '../../services/imageServices';
 import {addContact} from '../../services/fileService';
+import logo from '../../resources/logo.png';
 
 const AddContactModal = ({
     isOpen,
@@ -14,7 +15,7 @@ const AddContactModal = ({
 }) => {
   const [name,setName] = useState('');
   const [phone,setPhone] = useState('');
-  const [image,setImage] = useState('https://thumbs.dreamstime.com/z/unknown-male-avatar-profile-image-businessman-vector-unknown-male-avatar-profile-image-businessman-vector-profile-179373829.jpg');
+  const [image,setImage] = useState('https://thumbs.dreamstime.com/z/avatar-profile-picture-icon-logo-design-vector-illustration-avatar-profile-picture-icon-logo-design-vector-illustration-168609854.jpg');
   //async addNewContact = async
 
   return (
@@ -76,7 +77,7 @@ const AddContactModal = ({
             addContact(name,phone,image);
             setName('');
             setPhone('');
-            setImage('https://thumbs.dreamstime.com/z/unknown-male-avatar-profile-image-businessman-vector-unknown-male-avatar-profile-image-businessman-vector-profile-179373829.jpg');
+            setImage('https://thumbs.dreamstime.com/z/avatar-profile-picture-icon-logo-design-vector-illustration-avatar-profile-picture-icon-logo-design-vector-illustration-168609854.jpg');
             closeModal()}}
             disabled={name === ''|| phone.length !== 7 }
             >
