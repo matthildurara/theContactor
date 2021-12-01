@@ -1,64 +1,57 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text,ImageBackground,TouchableOpacity } from 'react-native';
+import { View, Text,ImageBackground,TouchableOpacity,Image } from 'react-native';
 import * as fileService from '../../services/fileService';
 import styles from './styles';
-//import ContactThumbnail from '../../components/ContactThumbnail';
 import AllContactDetail from '../../components/AllContactDetail';
 
 const ContactDetail = ({route}) => {
-  const {id} = route.params.id;
-  // const {name} = route.params.name;
-  // const {phone} = route.params.phone;
-  // console.log(id);
-  //   console.log(name);
-  //   console.log(phone);
+  const {id} = route.params;
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-  const [contact, setContact] = useState([]);
-  const [name,setName] = useState('');
-  const [phone,setPhone] = useState('');
-  const [image,setImage] = useState('');
+  const [contact, setContact] = useState('');
+    // const [name, setName] = useState('');
+    // const [phone, setPhone] = useState('');
 
-
-  //console.log(id);
 
   useEffect(()=> {
     (async ()=> {
       const contacts = await fileService.getAllContacts();
-      console.log(contacts);
 
       const findContact = contacts.filter(c=>c.id === id)
+      const objectCont = findContact.find(c=>c.id === id)
+      //const name = findContact.name;
+      //console.log(name);
       //console.log(findContact);
-      setContact(findContact);
-      setName(findContact.name);
-      setName(findContact.phone);
-      setName(findContact.image);
-
-      //console.log(findContact);
+      setContact(objectCont);
 
     })();
 
   },[]);
-  //console.log(contact);
-  // console.log(name);
-  // console.log(id);
-  // console.log(phone);
+
   return (
     <View>
-    <View style={styles.container}>
-      <TouchableOpacity
-        style={styles.edit}>
-        <Text> Edit</Text>
-      </TouchableOpacity>
-      </View>
+      <View styleName= "horizontal" style={styles.container}>
+        <TouchableOpacity style={styles.toolbarAction}
+        //onPress={()=> setIsEditModalOpen(true)}
+          >
+          <Text> Edit</Text>
+        </TouchableOpacity>
+        </View>
 
         <View>
           <Text style={styles.edit}>
-            {name}
+            {contact.name}
           </Text>
           <Text style={styles.edit}>
-            {phone}
+            {contact.phone}
           </Text>
+
+          <Image style={styles.image}
+            resizeMode="cover"
+            source={{ uri: contact.image }}
+          />
+
         </View>
+
     </View>
 
 

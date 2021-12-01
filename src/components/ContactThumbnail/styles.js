@@ -10,6 +10,8 @@ export default StyleSheet.create({
   contactImage:{
     flex:1,
     alignItems:'center',
+    width:20,
+    height:20,
 
   },
   contactName:{
