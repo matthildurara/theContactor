@@ -20,8 +20,10 @@ const AddContactModal = ({
 
   return (
     <Modal
+
     isOpen={isOpen}
     closeModal={closeModal}>
+
       <View style={styles.addContact}>
           <Text style={styles.addContactText}> Add Contact </Text>
       </View>

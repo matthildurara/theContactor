@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import NativeModal from 'react-native-modal';
-import {View,Text} from 'react-native';
+import {View,Text,TouchableWithoutFeedback,Keyboard} from 'react-native';
 import styles from './styles';
 
 const Modal = ({
@@ -19,10 +19,13 @@ const Modal = ({
     onSwipeComplete={closeModal}
     swipeDirection={['up','down']}
     style={styles.modal} >
+    <TouchableWithoutFeedback
+    onPress={Keyboard.dismiss}> 
       <View style={styles.body}>
         <Text>{title}</Text>
           {children}
       </View>
+      </TouchableWithoutFeedback>
   </NativeModal>
 );
 

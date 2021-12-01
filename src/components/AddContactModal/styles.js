@@ -5,8 +5,8 @@ const {width: winWidth} = Dimensions.get('window');
 export default StyleSheet.create({
     icon: {
         fontSize: 60,
-        marginTop: 20,
-        marginBottom: 20
+        marginTop: 10,
+        marginBottom: 10
     },
     container: {
       backgroundColor: 'rgba(155,155,155,0.5)',
@@ -15,6 +15,7 @@ export default StyleSheet.create({
       alignItems: 'center',
       width: winWidth -100,
     },
+
     addContact: {
       borderStyle: 'solid',
       borderWidth: 1,
