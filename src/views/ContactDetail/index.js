@@ -36,19 +36,20 @@ const ContactDetail = ({route}) => {
           <Text> Edit</Text>
         </TouchableOpacity>
         </View>
+        <Image style={styles.image}
+          resizeMode="cover"
+          source={{ uri: contact.image }}
+        />
 
-        <View>
-          <Text style={styles.edit}>
+        <View style={styles.contactBorder}>
+          <Text style={styles.name}>
             {contact.name}
           </Text>
-          <Text style={styles.edit}>
+          </View>
+          <View >
+          <Text style={styles.number}>
             {contact.phone}
           </Text>
-
-          <Image style={styles.image}
-            resizeMode="cover"
-            source={{ uri: contact.image }}
-          />
 
         </View>
 

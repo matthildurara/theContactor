@@ -11,25 +11,46 @@ export default StyleSheet.create({
   },
   paragraph:{
     textAlign: 'center',
-    color: 'white'
+    color: 'white',
   },
-  edit:{
+  contactBorder:{
+    borderStyle: 'solid',
+    borderWidth: 2,
+    paddingHorizontal: 1,
+
+  },
+  name:{
     color:'black',
+    fontSize: 30,
+    fontWeight: "600",
+		alignSelf: 'center',
+		justifyContent: 'center'
   },
+  number:{
+    marginTop: 40,
+    borderWidth: 1,
+    color:'black',
+    fontSize: 30,
+    fontWeight: "600",
+		alignSelf: 'center',
+		justifyContent: 'center'
+  },
+
   toolbarAction:{
   fontWeight:'bold',
   color: 'black',
   fontSize: 16
 },
-image:{
-  flex:1,
-padding:10,
-paddingLeft:10,
-paddingRight:1,
-marginBottom:15,
-marginRight:1,
-width:80,
-height:90,
-margin:10,
-}
+  image:{
+    flex:1,
+  padding:80,
+  paddingLeft:80,
+  paddingRight:80,
+  marginBottom:25,
+  marginRight:25,
+  width:130,
+  height:150,
+  margin:10,
+  alignSelf: 'center'
+},
 });
