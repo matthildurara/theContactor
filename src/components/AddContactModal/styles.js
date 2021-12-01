@@ -28,5 +28,9 @@ export default StyleSheet.create({
       paddingRight: 16,
       paddingLeft:16,
       borderWidth: 1,
-    }
+    },
+    setImage:{
+      height:10,
+      width:10
+    },
 });

@@ -29,7 +29,7 @@ useEffect(()=> {
     //setContacts(contacts);
     //console.log(sortedContacts);
   })();
-},[]);
+},[contacts]);
 
 const addNewContact = async (name,phone,image) => {
   const newC = {
@@ -70,7 +70,7 @@ return (
       <AllContacts
       //contacts={(contacts) => searchContacts(contacts)}
       contacts={contacts}
-      //navigation={navigation}
+      navigation={navigation}
       //searchString={searchString}
       />
   </View>

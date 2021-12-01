@@ -27,7 +27,7 @@ export const selectFromCameraRoll = async () => {
 };
 
 export const takePhoto = async () => {
-  await getPermissions([CAMERA, CAMERA_ROLL]);
+  await getPermission([CAMERA, CAMERA_ROLL]);
   const result = await ImagePicker.launchCameraAsync({
     mediaTypes: ImagePicker.MediaTypeOptions.Images,
     quality: 0.8,

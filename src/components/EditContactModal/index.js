@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import {Entypo} from '@expo/vector-icons';
 import {View,Text,TextInput,Button,TouchableOpacity} from 'react-native';
 import Modal from '../Modal';
@@ -9,12 +9,28 @@ import { takePhoto, selectFromCameraRoll } from '../../services/imageServices';
 const EditContactModal = ({
   isOpen,
   closeModal,
-  editContact
+  editContact,
+  oldName,
+  oldPhone,
+  oldImage
 }) => {
     const [name,setName] = useState('');
     const [phone,setPhone] = useState('');
     const [image,setImage] = useState('');
 
+    // useEffect(() => {
+    //   setName(oldName);
+    // },[oldName,setName]);
+    // useEffect(() => {
+    //   setPhone(oldPhone);
+    // },[oldPhone,setPhone]);
+    useEffect(() => {
+      setImage(oldImage);
+    },[oldImage,setImage]);
+
+
+    // setPhone(oldPhone);
+    // setImage(oldImage);
 
 return (
   <Modal
@@ -76,9 +92,9 @@ return (
           setPhone('');
           setImage('');
           closeModal()}}
-          disabled={name === ''|| phone.length !== 7 || image === ''}
+          disabled={name === ''|| phone.length !== 7 }
           >
-        <Text style={[styles.textAccept,!(name === ''|| phone.length !== 7 || image === '')
+        <Text style={[styles.textAccept,!(name === ''|| phone.length !== 7 )
         ? {}: {color:'rgba(155,155,155,0.5)'}]}>Ok</Text>
       </TouchableOpacity>
     </View>

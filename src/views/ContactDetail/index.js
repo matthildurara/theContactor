@@ -41,7 +41,7 @@ const ContactDetail = ({route}) => {
       "id": uuid.v4(),
       "name": name,
       "phone":phone,
-      "image":image,
+      "image":image
     }
     const newContact = await fileService.addContact(newC);
       setContact(newContact);
@@ -78,6 +78,9 @@ const ContactDetail = ({route}) => {
         isOpen={isEditModalOpen}
         closeModal={()=> setIsEditModalOpen(false)}
         editContact={(name,phone,image) => editNewContact(name,phone,image)}
+        oldName={contact.name}
+        oldPhone={contact.phone}
+        oldImage={contact.image}
         />
 
 

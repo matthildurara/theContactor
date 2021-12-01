@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 //import PropTypes from 'prop-types';
 import {Entypo} from '@expo/vector-icons';
-import {View,Text,TextInput,Button,TouchableOpacity} from 'react-native';
+import {View,Text,TextInput,Button,TouchableOpacity,Image} from 'react-native';
 import Modal from '../Modal';
 import styles from './styles';
 import { takePhoto, selectFromCameraRoll } from '../../services/imageServices';
@@ -14,7 +14,7 @@ const AddContactModal = ({
 }) => {
   const [name,setName] = useState('');
   const [phone,setPhone] = useState('');
-  const [image,setImage] = useState('');
+  const [image,setImage] = useState("https://images-ext-2.discordapp.net/external/R2qd_B5kRL5W9_OcXuV0jWX8Zu0TG6DTvO-rvvtBtHU/https/thumbs.dreamstime.com/z/unknown-male-avatar-profile-image-businessman-vector-unknown-male-avatar-profile-image-businessman-vector-profile-179373829.jpg?width=986&height=1041");
   //async addNewContact = async
 
   return (
@@ -76,11 +76,11 @@ const AddContactModal = ({
             addContact(name,phone,image);
             setName('');
             setPhone('');
-            setImage('');
+            setImage('"https://images-ext-2.discordapp.net/external/R2qd_B5kRL5W9_OcXuV0jWX8Zu0TG6DTvO-rvvtBtHU/https/thumbs.dreamstime.com/z/unknown-male-avatar-profile-image-businessman-vector-unknown-male-avatar-profile-image-businessman-vector-profile-179373829.jpg?width=986&height=1041"');
             closeModal()}}
-            disabled={name === ''|| phone.length !== 7 || image === ''}
+            disabled={name === ''|| phone.length !== 7 }
             >
-          <Text style={[styles.textAccept,!(name === ''|| phone.length !== 7 || image === '')
+          <Text style={[styles.textAccept,!(name === ''|| phone.length !== 7)
           ? {}: {color:'rgba(155,155,155,0.5)'}]}>Ok</Text>
         </TouchableOpacity>
       </View>
