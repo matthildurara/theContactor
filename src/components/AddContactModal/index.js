@@ -15,7 +15,7 @@ const AddContactModal = ({
 }) => {
   const [name,setName] = useState('');
   const [phone,setPhone] = useState('');
-  const [image,setImage] = useState('https://thumbs.dreamstime.com/z/avatar-profile-picture-icon-logo-design-vector-illustration-avatar-profile-picture-icon-logo-design-vector-illustration-168609854.jpg');
+  const [image,setImage] = useState('https://thumbs.dreamstime.com/b/vector-illustration-isolated-white-background-user-profile-avatar-black-line-icon-user-profile-avatar-black-solid-icon-121102166.jpg');
   //async addNewContact = async
 
   return (
@@ -77,7 +77,7 @@ const AddContactModal = ({
             addContact(name,phone,image);
             setName('');
             setPhone('');
-            setImage('https://thumbs.dreamstime.com/z/avatar-profile-picture-icon-logo-design-vector-illustration-avatar-profile-picture-icon-logo-design-vector-illustration-168609854.jpg');
+            setImage('https://thumbs.dreamstime.com/b/vector-illustration-isolated-white-background-user-profile-avatar-black-line-icon-user-profile-avatar-black-solid-icon-121102166.jpg');
             closeModal()}}
             disabled={name === ''|| phone.length !== 7 }
             >
