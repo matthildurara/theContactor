@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text,ImageBackground,TouchableOpacity,Image } from 'react-native';
 import * as fileService from '../../services/fileService';
 import styles from './styles';
-import AllContactDetail from '../../components/AllContactDetail';
+
 
 const ContactDetail = ({route}) => {
   const {id} = route.params;
