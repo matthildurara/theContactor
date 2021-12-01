@@ -5,22 +5,25 @@ import styles from './styles';
 import ContactThumbnail from '../ContactThumbnail';
 
 
-const AllContacts = ({contacts,navigation}) => {
+const AllContacts = ({ contacts }) => {
+  //console.log(contacts);
+  //console.log(contacts.image);
   return(
   <View style = {styles.listContainer}>
     <FlatList
       numColumns={1}
       data={contacts}
-      renderItem={({ item: {  id, name, image } }) => (
+      renderItem={({ item: {  id, name,phone, image } }) => (
         <ContactThumbnail
-          navigation={navigation}
           id={id}
           name={name}
-          Image={image}
+          image={image}
+          phone={phone}
+
 
         />
     )}
-    keyExtractor={item => item.id.toString()} />
+    keyExtractor={(contact) => (contact).id} />
   </View>
 
 );

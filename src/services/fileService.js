@@ -60,6 +60,9 @@ const setupDirectory = async () => {
     await FileSystem.makeDirectoryAsync(contactsDir);
   }
 }
+export const deleteAll = async () => {
+  await FileSystem.deleteAsync(contactsDir);
+}
 
 // export const Data = async () => {
 //   await setupDirectory();
