@@ -14,7 +14,7 @@ const AddContactModal = ({
 }) => {
   const [name,setName] = useState('');
   const [phone,setPhone] = useState('');
-  const [image,setImage] = useState("https://images-ext-2.discordapp.net/external/R2qd_B5kRL5W9_OcXuV0jWX8Zu0TG6DTvO-rvvtBtHU/https/thumbs.dreamstime.com/z/unknown-male-avatar-profile-image-businessman-vector-unknown-male-avatar-profile-image-businessman-vector-profile-179373829.jpg?width=986&height=1041");
+  const [image,setImage] = useState('https://thumbs.dreamstime.com/z/unknown-male-avatar-profile-image-businessman-vector-unknown-male-avatar-profile-image-businessman-vector-profile-179373829.jpg');
   //async addNewContact = async
 
   return (
@@ -76,7 +76,7 @@ const AddContactModal = ({
             addContact(name,phone,image);
             setName('');
             setPhone('');
-            setImage('"https://images-ext-2.discordapp.net/external/R2qd_B5kRL5W9_OcXuV0jWX8Zu0TG6DTvO-rvvtBtHU/https/thumbs.dreamstime.com/z/unknown-male-avatar-profile-image-businessman-vector-unknown-male-avatar-profile-image-businessman-vector-profile-179373829.jpg?width=986&height=1041"');
+            setImage('https://thumbs.dreamstime.com/z/unknown-male-avatar-profile-image-businessman-vector-unknown-male-avatar-profile-image-businessman-vector-profile-179373829.jpg');
             closeModal()}}
             disabled={name === ''|| phone.length !== 7 }
             >
