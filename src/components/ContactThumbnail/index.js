@@ -19,12 +19,14 @@ const ContactThumbnail = ({id,name,phone,image}) => {
   return (
     <TouchableOpacity
     onPress={() => navigate('ContactDetail',{id:id})}>
-      <View style={styles.contact}>
+      <View style={styles.ContactItem}>
+
         <Image style={styles.contactImage}
         source={{ uri: image }}
         />
 
           <Text style={styles.contactName}>{name}</Text>
+        <AntDesign name="arrowright" size={24} color="black" />
       </View>
     </TouchableOpacity>
 );
