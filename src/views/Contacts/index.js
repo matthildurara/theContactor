@@ -18,7 +18,8 @@ const [contacts,setContacts]= useState([]);
 const [searchString,setSearch]= useState('');
 const [name, setName]=useState('');
 const [phone, setPhone]=useState('');
-const [image, setImage]=useState([])
+const [image, setImage]=useState('');
+//console.log(contacts);
 
 useEffect(()=> {
   (async () => {
@@ -58,7 +59,8 @@ return (
       search="Search"
       searchString={searchString}
       setSearch={setSearch}
-      onAdd={()=> setIsAddModalOpen(true)}    />
+      onAdd={()=> setIsAddModalOpen(true)}
+      onDelete={() => fileService.deleteAll()} />
     <AddContactModal
       isOpen={isAddModalOpen}
       closeModal={()=> setIsAddModalOpen(false)}
@@ -68,8 +70,8 @@ return (
       <AllContacts
       //contacts={(contacts) => searchContacts(contacts)}
       contacts={contacts}
-      navigation={navigation}
-      searchString={searchString}
+      //navigation={navigation}
+      //searchString={searchString}
       />
   </View>
 )

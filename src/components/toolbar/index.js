@@ -8,7 +8,8 @@ const Toolbar = ({
   onAdd,
   search,
   setSearch,
-  searchString
+  searchString,
+  onDelete,
 }) => (
 
     <View styleName= "horizontal" style={styles.toolbar}>
@@ -19,6 +20,11 @@ const Toolbar = ({
           placeholder="Search"
           search={search}
           />
+          </TouchableOpacity>
+          <TouchableOpacity
+          style={styles.toolbarAction}
+          onPress={() => onDelete()}>
+            <Text> Delete </Text>
           </TouchableOpacity>
 
           <TouchableOpacity

@@ -6,43 +6,57 @@ import styles from './styles';
 import AllContactDetail from '../../components/AllContactDetail';
 
 const ContactDetail = ({route}) => {
-  const {id} = route.params;
+  const {id} = route.params.id;
+  // const {name} = route.params.name;
+  // const {phone} = route.params.phone;
+  // console.log(id);
+  //   console.log(name);
+  //   console.log(phone);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [contact, setContact] = useState([]);
-  // const [name,setName] = useState('');
-  // const [phone,setPhone] = useState('');
-  // const [image,setImage] = useState('');
+  const [name,setName] = useState('');
+  const [phone,setPhone] = useState('');
+  const [image,setImage] = useState('');
 
 
-  console.log(id);
+  //console.log(id);
 
   useEffect(()=> {
     (async ()=> {
       const contacts = await fileService.getAllContacts();
+      console.log(contacts);
 
       const findContact = contacts.filter(c=>c.id === id)
+      //console.log(findContact);
       setContact(findContact);
-      // setName(findContact.name);
-      // setName(findContact.phone);
-      // setName(findContact.image);
+      setName(findContact.name);
+      setName(findContact.phone);
+      setName(findContact.image);
 
-      console.log(findContact);
+      //console.log(findContact);
 
     })();
 
   },[]);
+  //console.log(contact);
+  // console.log(name);
+  // console.log(id);
+  // console.log(phone);
   return (
+    <View>
     <View style={styles.container}>
       <TouchableOpacity
         style={styles.edit}>
         <Text> Edit</Text>
       </TouchableOpacity>
+      </View>
+
         <View>
           <Text style={styles.edit}>
-            {contact.name}
+            {name}
           </Text>
           <Text style={styles.edit}>
-            {contact.phone}
+            {phone}
           </Text>
         </View>
     </View>
