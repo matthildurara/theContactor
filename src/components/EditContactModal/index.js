@@ -14,12 +14,12 @@ const EditContactModal = ({
     const [name,setName] = useState('');
     const [phone,setPhone] = useState('');
     const [image,setImage] = useState('');
-}
+
 
 return (
   <Modal
   isOpen={isOpen}
-  closeModal={closeModal}
+  closeModal={closeModal}>
     <View style={styles.editcontact}>
       <Text style={styles.editContactText}>Edit Contact </Text>
     </View>
@@ -71,7 +71,7 @@ return (
     <View style={styles.container}>
       <TouchableOpacity
         onPress={() => {
-          addContact(name,phone,image);
+          editContact(name,phone,image);
           setName('');
           setPhone('');
           setImage('');
@@ -82,6 +82,7 @@ return (
         ? {}: {color:'rgba(155,155,155,0.5)'}]}>Ok</Text>
       </TouchableOpacity>
     </View>
+    </Modal>
 );
 };
 

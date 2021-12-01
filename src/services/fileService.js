@@ -18,16 +18,21 @@ export const writeToFile = async (file, location) => {
   onExeption(() => FileSystem.writeAsStringAsync)
 }
 
+export const deleteContact = async contact => {
+  const str = contact.name;
+  const validString = str.replace(/[^A-Za-z0-9\s-]/g, '');
+  const string = validString.replace(/ /g,"_");
+  const strName = string + "-" + contact.id + ".JSON";
+  return onExeption(()=> FileSystem.deleteAsync(`${contactsDir}/${strName}`,{idempotent:true}));
+};
+
 export const addContact = async contact => {
   const str = contact.name;
   const validString = str.replace(/[^A-Za-z0-9\s-]/g, '');
-  console.log(validString);
   const string = validString.replace(/ /g,"_");
   const strName = string + "-" + contact.id + ".JSON";
-  //const jsonName = JSON.stringify(strName);
   const jsonCon = JSON.stringify(contact);
-  console.log(strName);
-  console.log(`${contactsDir}/${strName}`);
+
   await onExeption(()=> FileSystem.writeAsStringAsync (`${contactsDir}/${strName}`,jsonCon));
 
   return{

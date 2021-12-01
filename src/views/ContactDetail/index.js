@@ -3,7 +3,8 @@ import { View, Text,ImageBackground,TouchableOpacity,Image } from 'react-native'
 import * as fileService from '../../services/fileService';
 import styles from './styles';
 import {Entypo} from '@expo/vector-icons';
-
+import EditContactModal from '../../components/EditContactModal';
+import uuid from 'react-native-uuid';
 
 const ContactDetail = ({route}) => {
   const {id} = route.params;
@@ -28,11 +29,29 @@ const ContactDetail = ({route}) => {
 
   },[]);
 
+  const editNewContact = async (name,phone,image) => {
+    const oldC = {
+      "id": contact.id,
+      "name": contact.name,
+      "phone":contact.phone,
+      "image":contact.image,
+    }
+    await fileService.deleteContact(oldC);
+    newC = {
+      "id": uuid.v4(),
+      "name": name,
+      "phone":phone,
+      "image":image,
+    }
+    const newContact = await fileService.addContact(newC);
+      setContact(newContact);
+  }
+
   return (
     <View >
       <View styleName= "horizontal" style={styles.container} >
         <TouchableOpacity style={styles.toolbarAction}
-        //onPress={()=> setIsEditModalOpen(true)}
+        onPress={()=> setIsEditModalOpen(true)}
           >
           <Text> Edit</Text>
         </TouchableOpacity>
@@ -55,6 +74,11 @@ const ContactDetail = ({route}) => {
           </Text>
 
         </View>
+        <EditContactModal
+        isOpen={isEditModalOpen}
+        closeModal={()=> setIsEditModalOpen(false)}
+        editContact={(name,phone,image) => editNewContact(name,phone,image)}
+        />
 
 
     </View>
