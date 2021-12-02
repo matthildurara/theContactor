@@ -12,6 +12,7 @@ import uuid from 'react-native-uuid';
 
 
 
+
 const Contacts = (navigation) => {
 
 const [isAddModalOpen,setIsAddModalOpen] = useState(false);
@@ -23,6 +24,7 @@ const [image, setImage]=useState('');
 //console.log(contacts);
 
 useEffect(()=> {
+
   (async () => {
     const contacts = await fileService.getAllContacts();
     const sortedContacts = contacts.sort((a,b) => a.name.localeCompare(b.name));
@@ -30,7 +32,8 @@ useEffect(()=> {
       setContacts(sortedContacts);
     }
     else{
-    const filteredContacts = contacts.filter(contact => contact.name === searchString);
+    const searchLower = searchString.toLowerCase();
+    const filteredContacts = contacts.filter(contact => contact.name.toLowerCase().includes(searchLower));
     setContacts(filteredContacts);
   }
     //setContacts(contacts);
