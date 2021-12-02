@@ -16,8 +16,8 @@ const Contacts = (navigation) => {
 
 const [isAddModalOpen,setIsAddModalOpen] = useState(false);
 const [contacts,setContacts]= useState([]);
-const [searchString,setSearch]= useState('');
-const [name, setName]=useState('');
+//const [filterData,setFileteredData]= useState([]);
+const [searchString, setSearch]=useState('');
 const [phone, setPhone]=useState('');
 const [image, setImage]=useState('');
 //console.log(contacts);
@@ -26,11 +26,18 @@ useEffect(()=> {
   (async () => {
     const contacts = await fileService.getAllContacts();
     const sortedContacts = contacts.sort((a,b) => a.name.localeCompare(b.name));
-    setContacts(sortedContacts);
+    if (searchString=== ''){
+      setContacts(sortedContacts);
+    }
+    else{
+    const filteredContacts = contacts.filter(contact => contact.name === searchString);
+    setContacts(filteredContacts);
+  }
     //setContacts(contacts);
     //console.log(sortedContacts);
   })();
-},[contacts]);
+},[contacts,searchString]);
+
 
 const addNewContact = async (name,phone,image) => {
   const newC = {
@@ -46,23 +53,26 @@ const addNewContact = async (name,phone,image) => {
   setContacts([...contacts,newContact]);
   setIsAddModalOpen(false);
 }
-  const searchContacts = (contacts) => {
-    let filteredContacts = contacts.filter(function(item) {
-      return item.toLowerCase().includes(searchString.toLowerCase());
-    });
-    return filteredData;
-
-  };
+  // const searchContacts = () => {
+  //   //const copy = [...contacts];
+  //   //setFileteredData(copy);
+  //   const filteredContacts = contactsfilter(contact => contact.toLowerCase().icludes(searchString.toLowerCase()));
+  //   setFilteredData(filteredContacts);
+  //   //let filteredContacts = filterData.filter(function(item) {
+  //     //return item.toLowerCase().includes(searchString.toLowerCase());
+  //     if()
+  //   });
+  //   //setFileteredData(filteredData)
+  //   return filteredContacts;
+  //
+  // };
 
 return (
   <View style={styles.container}>
     <Toolbar
-      search="Search"
-      searchString={searchString}
-      setSearch={setSearch}
+      onSearch={(searchString) =>setSearch(searchString)}
       onAdd={()=> setIsAddModalOpen(true)}
       onDelete={() => fileService.deleteAll()} />
-      <SearchBar />
     <AddContactModal
       isOpen={isAddModalOpen}
       closeModal={()=> setIsAddModalOpen(false)}
@@ -70,10 +80,9 @@ return (
       />
 
       <AllContacts
-      //contacts={(contacts) => searchContacts(contacts)}
       contacts={contacts}
+      searchString={searchString}
       navigation={navigation}
-      //searchString={searchString}
       />
   </View>
 )
