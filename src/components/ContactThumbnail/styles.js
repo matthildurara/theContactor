@@ -12,38 +12,44 @@ export default StyleSheet.create({
     paddingRight:1,
     marginBottom:2,
     marginRight:1,
-    width:20,
-    height:80,
+    width:100,
+    height:100,
     margin:3,
+    borderRadius:50,
 
   },
   contactName:{
   flex:1,
   flexGrow:1,
-  width:40,
-  //textAlign: 'center',
+  width:310,
+  textAlign: 'center',
   marginLeft:10,
   marginRight:5,
   marginTop:30,
   marginBottom:40,
-
   fontWeight:'bold',
-  //position:'relative'
-
+  position:'relative'
 },
 ContactItem: {
-  flex:1,
-  flexDirection:'row',
-
+  // flex:1,
+  flexDirection:'column',
   width:320,
   borderColor:'black',
-  borderWidth:2,
-  marginTop: 5,
+  borderRadius:20,
+  marginTop: 10,
   paddingTop: 5,
   paddingBottom: 5,
   paddingLeft: 5,
   paddingRight: 5,
-  backgroundColor:'rgb(149, 235, 235)',
+  backgroundColor:'gainsboro',
+  alignItems:'center',
+  shadowColor: "#000",
+  shadowOffset: {
+	width: 0,
+	height: 2,},
+  shadowOpacity: 0.25,
+  shadowRadius: 3.84,
+  elevation: 5,
 },
 
 });

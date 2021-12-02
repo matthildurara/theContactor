@@ -20,7 +20,6 @@ const ContactThumbnail = ({id,name,phone,image}) => {
         />
 
           <Text style={styles.contactName}>{name}</Text>
-        <AntDesign name="arrowright" size={24} color="black" />
       </View>
     </TouchableOpacity>
 );

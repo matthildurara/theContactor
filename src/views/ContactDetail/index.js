@@ -53,20 +53,21 @@ const ContactDetail = ({route}) => {
         <TouchableOpacity style={styles.toolbarAction}
         onPress={()=> setIsEditModalOpen(true)}
           >
-          <Text> Edit</Text>
+          <Text style={styles.toolbarText}> Edit</Text>
         </TouchableOpacity>
           </View>
+          <View style={styles.imageBackground}>
         <Image style={styles.image}
           resizeMode="cover"
           source={{ uri: contact.image }}
         />
-
-        <View style={styles.contactBorder}>
+        </View>
+        <View style={styles.contactBorderName}>
           <Text style={styles.name}>
             {contact.name}
           </Text>
           </View>
-          <View >
+          <View style={styles.contactBorderNum}>
 
           <Text style={styles.number}>
             {contact.phone}

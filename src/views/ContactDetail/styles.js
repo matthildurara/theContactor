@@ -7,48 +7,53 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     height: 70,
-    backgroundColor: lightBlue,
+    backgroundColor: '#b0c4de',
   },
-  paragraph:{
+    toolbarAction:{
+    width:100,
+    textAlign:'center',
+    color: 'black',
+    backgroundColor: '#b0c4de'
+  },
+  toolbarText:{
     textAlign: 'center',
-    color: 'white',
-    backgroundColor: lightBlue,
+    fontWeight:'bold',
+    fontSize:16
   },
-  contactBorder:{
-    borderStyle: 'solid',
-    borderWidth: 2,
+
+  contactBorderName:{
+    borderBottomColor: 'black',
+    borderBottomWidth: 2,
     paddingHorizontal: 1,
-    backgroundColor: lightBlue,
+    backgroundColor:'gainsboro',
+    paddingBottom:10
 
 
   },
+
+    contactBorderNum:{
+      paddingTop:20,
+      backgroundColor:'gainsboro',
+      height:700
+    },
+
   name:{
     color:'black',
     fontSize: 30,
     fontWeight: "600",
 		alignSelf: 'center',
 		justifyContent: 'center',
-    backgroundColor: lightBlue,
-
-
   },
+
   number:{
-    marginTop: 40,
-    borderWidth: 1,
+    paddingBottom:10,
     color:'black',
     fontSize: 30,
     fontWeight: "600",
 		alignSelf: 'center',
 		justifyContent: 'center',
-    backgroundColor: lightBlue,
   },
 
-  toolbarAction:{
-  fontWeight:'bold',
-  color: 'black',
-  fontSize: 16,
-  backgroundColor: lightBlue,
-},
   image:{
     flex:1,
   padding:80,
@@ -60,7 +65,10 @@ export default StyleSheet.create({
   height:150,
   margin:10,
   alignSelf: 'center',
-  backgroundColor: lightBlue,
+  borderRadius:100
+},
+imageBackground:{
+  backgroundColor:'gainsboro'
 },
 icon: {
   fontSize: 20,

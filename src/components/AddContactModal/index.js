@@ -19,7 +19,7 @@ const AddContactModal = ({
   //async addNewContact = async
 
   return (
-    <Modal
+    <Modal style={styles.modal}
 
     isOpen={isOpen}
     closeModal={closeModal}>

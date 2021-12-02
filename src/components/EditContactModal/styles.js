@@ -9,24 +9,27 @@ export default StyleSheet.create({
         marginBottom: 20
     },
     container: {
-      backgroundColor: 'rgba(155,155,155,0.5)',
+      backgroundColor:'#b0c4de',
       flex:1,
       flexDirection:'row',
       alignItems: 'center',
       width: winWidth -100,
     },
-    addContact: {
+    editContact: {
       borderStyle: 'solid',
       borderWidth: 1,
       paddingHorizontal: 1,
     },
-    addContactText:{
+    editContactText:{
       fontSize:20,
     },
     textInput:{
-      width: winWidth -90,
+      width: winWidth -100,
       paddingRight: 16,
       paddingLeft:16,
       borderWidth: 1,
+    },
+    textAccept:{
+      fontSize:20
     }
 });

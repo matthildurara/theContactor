@@ -4,9 +4,9 @@ import {lightBlue} from '../../styles/colors';
 export default StyleSheet.create({
   container: {
     flex:1,
-    padding:19,
-    backgroundColor: lightBlue,
-    justifyContent: 'space-around'
+    backgroundColor:'#b0c4de',
+    justifyContent: 'space-around',
+    alignItems:'center'
   },
   paragraph:{
     textAlign: 'center',

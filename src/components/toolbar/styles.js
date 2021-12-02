@@ -7,11 +7,20 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     height: 70,
-    backgroundColor:green
+    backgroundColor:'#b0c4de',
+    top:0,
+    paddingLeft:10,
+    paddingRight:10,
+    shadowColor: '#000',
+        shadowOffset: { width: 1, height: 1 },
+        shadowOpacity:  0.4,
+        shadowRadius: 3,
+        elevation: 5,
+    marginBottom: 10
   },
   toolbarActionText:{
     fontWeight:'bold',
-    color: 'black',
+    color: 'white',
     fontSize: 16
   },
   toolbarAction:{
