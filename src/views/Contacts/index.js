@@ -6,6 +6,7 @@ import Toolbar from '../../components/Toolbar';
 import AddContactModal from '../../components/AddContactModal';
 import * as fileService from '../../services/fileService';
 import AllContacts from '../../components/AllContacts';
+import SearchBar from '../../components/Search';
 import uuid from 'react-native-uuid';
 
 
@@ -61,6 +62,7 @@ return (
       setSearch={setSearch}
       onAdd={()=> setIsAddModalOpen(true)}
       onDelete={() => fileService.deleteAll()} />
+      <SearchBar />
     <AddContactModal
       isOpen={isAddModalOpen}
       closeModal={()=> setIsAddModalOpen(false)}
