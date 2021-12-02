@@ -17,5 +17,8 @@ export default StyleSheet.create({
   toolbarAction:{
     flex:1,
     alignItems: 'center'
+  },
+  searchBar:{
+    borderWidth: 1
   }
 });
