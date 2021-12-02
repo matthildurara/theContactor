@@ -32,7 +32,8 @@ useEffect(()=> {
       setContacts(sortedContacts);
     }
     else{
-    const filteredContacts = contacts.filter(contact => contact.name.includes(searchString));
+    const searchLower = searchString.toLowerCase();
+    const filteredContacts = contacts.filter(contact => contact.name.toLowerCase().includes(searchLower));
     setContacts(filteredContacts);
   }
     //setContacts(contacts);
