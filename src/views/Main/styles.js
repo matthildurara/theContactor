@@ -5,7 +5,7 @@ export default StyleSheet.create({
   container:{
     flex:1,
     padding: 20,
-    backgroundColor: darkBlue,
+    backgroundColor:'#b0c4de',
     alignItems: 'center',
     justifyContent: 'space-around'
   },
@@ -15,12 +15,13 @@ export default StyleSheet.create({
     paddingBottom: 10,
     paddingLeft: 20,
     paddingRight: 20,
-    borderColor: 'white',
     borderWidth: 2,
-    backgroundColor: gray
+    backgroundColor: gray,
+    borderColor:'black',
   },
   buttonText: {
-    color: 'white'
+    color: 'black',
+
   },
   logo:{
     width: 200,
@@ -28,6 +29,6 @@ export default StyleSheet.create({
   },
   paragraph: {
     textAlign: 'center',
-    color: 'white'
+    color: 'black'
   }
 });
