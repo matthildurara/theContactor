@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text,ImageBackground,TouchableOpacity,Image } from 'react-native';
+import { View, Text,ImageBackground,TouchableOpacity,Image,Linking } from 'react-native';
 import * as fileService from '../../services/fileService';
 import styles from './styles';
 import {Entypo} from '@expo/vector-icons';
@@ -68,12 +68,13 @@ const ContactDetail = ({route}) => {
           </Text>
           </View>
           <View style={styles.contactBorderNum}>
-
-          <Text style={styles.number}>
-            {contact.phone}
-            <Entypo style={styles.icon} name="phone" />
-          </Text>
-
+          <TouchableOpacity
+            onPress={()=> {Linking.openURL(`telprompt:${contact.phone}`);}}>
+            <Text style={styles.number}>
+              {contact.phone}
+              <Entypo style={styles.icon} name="phone" />
+              </Text>
+            </TouchableOpacity>
         </View>
         <EditContactModal
         isOpen={isEditModalOpen}
