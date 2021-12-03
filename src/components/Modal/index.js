@@ -20,12 +20,12 @@ const Modal = ({
     swipeDirection={['up','down']}
     style={styles.modal} >
     <TouchableWithoutFeedback
-    onPress={Keyboard.dismiss}> 
+      onPress={Keyboard.dismiss}>
       <View style={styles.body}>
         <Text>{title}</Text>
           {children}
       </View>
-      </TouchableWithoutFeedback>
+    </TouchableWithoutFeedback>
   </NativeModal>
 );
 

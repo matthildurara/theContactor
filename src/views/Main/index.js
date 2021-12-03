@@ -6,7 +6,6 @@ import styles from './styles';
 
 const Main = ({navigation: {navigate}}) => (
 
-
   <View style={styles.container}>
     <Image style={styles.logo} source={logo}/>
     <Text style={styles.paragraph}> The Contactor </Text>
@@ -17,7 +16,5 @@ const Main = ({navigation: {navigate}}) => (
     </TouchableHighlight>
   </View>
 );
-
-
 
 export default Main;

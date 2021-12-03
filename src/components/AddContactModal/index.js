@@ -16,18 +16,14 @@ const AddContactModal = ({
   const [name,setName] = useState('');
   const [phone,setPhone] = useState('');
   const [image,setImage] = useState('https://thumbs.dreamstime.com/b/vector-illustration-isolated-white-background-user-profile-avatar-black-line-icon-user-profile-avatar-black-solid-icon-121102166.jpg');
-  //async addNewContact = async
 
   return (
     <Modal style={styles.modal}
-
-    isOpen={isOpen}
-    closeModal={closeModal}>
-
+      isOpen={isOpen}
+      closeModal={closeModal}>
       <View style={styles.addContact}>
           <Text style={styles.addContactText}> Add Contact </Text>
       </View>
-
       <View style={styles.container}>
         <Text style={styles.contactText}> Contact Name: </Text>
       </View>
@@ -39,7 +35,6 @@ const AddContactModal = ({
             onChangeText={setName}
         />
       </TouchableOpacity>
-
       <View style={styles.container}>
         <Text style={styles.contactText}> Phone Number: </Text>
       </View>
@@ -53,7 +48,6 @@ const AddContactModal = ({
             maxLength={7}
         />
       </TouchableOpacity>
-
       <View style={styles.container}>
         <Text style={styles.contactText}> Photo </Text>
       </View>
@@ -64,7 +58,6 @@ const AddContactModal = ({
          >
         <Entypo style={styles.icon} name="camera"/>
       </TouchableOpacity>
-
       <TouchableOpacity
         onPress={async () => {
           const image = await selectFromCameraRoll();
@@ -72,7 +65,6 @@ const AddContactModal = ({
         >
         <Entypo style={styles.icon} name="image"/>
       </TouchableOpacity>
-
       <View style={styles.container}>
         <TouchableOpacity
           onPress={() => {
@@ -83,7 +75,7 @@ const AddContactModal = ({
             closeModal()}}
             disabled={name === ''|| phone.length !== 7 }
             >
-          <Text style={[styles.textAccept,!(name === ''|| phone.length !== 7)
+          <Text style={[styles.textAccept,!(name === ''|| phone.length !== 7 )
           ? {}: {color:'rgba(155,155,155,0.5)'}]}>Ok</Text>
         </TouchableOpacity>
       </View>

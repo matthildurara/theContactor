@@ -51,32 +51,32 @@ const ContactDetail = ({route}) => {
     <View >
       <View styleName= "horizontal" style={styles.container} >
         <TouchableOpacity style={styles.toolbarAction}
-        onPress={()=> setIsEditModalOpen(true)}
+          onPress={()=> setIsEditModalOpen(true)}
           >
           <Text style={styles.toolbarText}> Edit</Text>
         </TouchableOpacity>
-          </View>
-          <View style={styles.imageBackground}>
+      </View>
+      <View style={styles.imageBackground}>
         <Image style={styles.image}
           resizeMode="cover"
           source={{ uri: contact.image }}
         />
-        </View>
-        <View style={styles.contactBorderName}>
-          <Text style={styles.name}>
-            {contact.name}
+      </View>
+      <View style={styles.contactBorderName}>
+        <Text style={styles.name}>
+          {contact.name}
+        </Text>
+      </View>
+      <View style={styles.contactBorderNum}>
+        <TouchableOpacity
+          onPress={()=> {Linking.openURL(`telprompt:${contact.phone}`);}}>
+          <Text style={styles.number}>
+            {contact.phone}
+            <Entypo style={styles.icon} name="phone" />
           </Text>
-          </View>
-          <View style={styles.contactBorderNum}>
-          <TouchableOpacity
-            onPress={()=> {Linking.openURL(`telprompt:${contact.phone}`);}}>
-            <Text style={styles.number}>
-              {contact.phone}
-              <Entypo style={styles.icon} name="phone" />
-              </Text>
-            </TouchableOpacity>
-        </View>
-        <EditContactModal
+        </TouchableOpacity>
+      </View>
+      <EditContactModal
         isOpen={isEditModalOpen}
         closeModal={()=> setIsEditModalOpen(false)}
         editContact={(name,phone,image) => editNewContact(name,phone,image)}
@@ -84,12 +84,7 @@ const ContactDetail = ({route}) => {
         oldPhone={contact.phone}
         oldImage={contact.image}
         />
-
-
     </View>
-
-
-
 )
 };
 

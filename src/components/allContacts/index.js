@@ -18,14 +18,11 @@ const AllContacts = ({ contacts,navigation }) => {
           name={name}
           image={image}
           phone={phone}
-
-
         />
     )}
     keyExtractor={(contact) => (contact).id} />
   </View>
 
-);
-}
+);}
 
 export default AllContacts;

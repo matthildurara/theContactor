@@ -23,7 +23,7 @@ export const deleteContact = async contact => {
   const validString = str.replace(/[^A-Za-z0-9\s-]/g, '');
   const string = validString.replace(/ /g,"_");
   const strName = string + "-" + contact.id + ".JSON";
-  return onExeption(()=> FileSystem.deleteAsync(`${contactsDir}/${strName}`,{idempotent:true}));
+  return await onExeption(()=> FileSystem.deleteAsync(`${contactsDir}/${strName}`,{idempotent:true}));
 };
 
 export const addContact = async contact => {
@@ -68,12 +68,3 @@ const setupDirectory = async () => {
 export const deleteAll = async () => {
   await FileSystem.deleteAsync(contactsDir);
 }
-
-// export const Data = async () => {
-//   await setupDirectory();
-//   const newContact = {name: contact.name, phone: contact.phone, image: contact.image};
-//   const fileName = `${documentsDirectory}.json`;
-//   await FileSystem.writeAsStringAsync(fileName, JSON.stringify(newContact));
-//
-//
-// };

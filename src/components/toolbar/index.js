@@ -6,10 +6,6 @@ import styles from './styles';
 
 const Toolbar = ({
   onAdd,
-  // search,
-  // setSearch,
-   //searchString,
-  onDelete,
   onSearch,
 }) => {
 
@@ -25,28 +21,19 @@ return(
         />
       </TouchableOpacity>
       <TouchableOpacity
-          onPress={()=>onSearch(search)}>
-          <Text>
+        onPress={()=>onSearch(search)}>
+        <Text>
           <MaterialIcons name="search" size={24} color="black" />
-          </Text>
+        </Text>
       </TouchableOpacity>
-          <TouchableOpacity
-          style={styles.toolbarAction}
-          onPress={() => onDelete()}>
-            <Text> Delete </Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-          style={styles.toolbarAction}
-          onPress={() => onAdd()}>
-            <Text>
-            <Ionicons name="person-add-outline" size={24} color="black" />
-            </Text>
-          </TouchableOpacity>
-
-          </View>
-
-);
-}
+      <TouchableOpacity
+        style={styles.toolbarAction}
+        onPress={() => onAdd()}>
+        <Text>
+          <Ionicons name="person-add-outline" size={24} color="black" />
+        </Text>
+      </TouchableOpacity>
+    </View>
+);}
 
 export default Toolbar;
