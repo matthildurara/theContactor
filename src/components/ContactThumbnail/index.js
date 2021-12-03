@@ -8,18 +8,18 @@ import {AntDesign} from '@expo/vector-icons';
 
 const ContactThumbnail = ({id,name,phone,image}) => {
   const {navigate} = useNavigation();
-
-
   return (
     <TouchableOpacity
     onPress={() => navigate('ContactDetail',{id:id})}>
-      <View style={styles.ContactItem}>
+      <View style={styles.ContactItem} >
 
         <Image style={styles.contactImage}
         source={{ uri: image }}
+        numColumns={2}
         />
 
           <Text style={styles.contactName}>{name}</Text>
+          <AntDesign name="arrowright"size={24} color="black" />
       </View>
     </TouchableOpacity>
 );

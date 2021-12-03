@@ -4,16 +4,18 @@ import {StyleSheet,Dimensions} from 'react-native';
 export default StyleSheet.create({
   contact: {
     flex:1,
+    flexDirection:'column',
   },
   contactImage:{
     flex:1,
+
     padding:5,
     paddingLeft:5,
     paddingRight:1,
     marginBottom:2,
     marginRight:1,
-    width:100,
-    height:100,
+    width:30,
+    height:80,
     margin:3,
     borderRadius:50,
 
@@ -21,18 +23,18 @@ export default StyleSheet.create({
   contactName:{
   flex:1,
   flexGrow:1,
-  width:310,
+  width:320,
   textAlign: 'center',
-  marginLeft:10,
+  marginLeft:5,
   marginRight:5,
-  marginTop:30,
-  marginBottom:40,
+  marginTop:10,
+  marginBottom:15,
   fontWeight:'bold',
   position:'relative'
 },
 ContactItem: {
-  // flex:1,
-  flexDirection:'column',
+   flex:1,
+  flexDirection:'row',
   width:320,
   borderColor:'black',
   borderRadius:20,

@@ -6,18 +6,6 @@ import ContactThumbnail from '../ContactThumbnail';
 
 
 const AllContacts = ({ contacts,navigation }) => {
-  //console.log(contacts);
-  //console.log(contacts.image);
-//   const [filterData,setFilteredData]= useState([]);
-//
-//   useEffect(()=>{
-//     setFilteredData(contacts.filter(function (item) {
-// 			return item.name.toLowerCase().includes(search.toLowerCase());
-//
-// })
-//
-// );
-// },[contacts,searchString]);
 
   return(
   <View style = {styles.listContainer}>
