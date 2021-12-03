@@ -6,7 +6,7 @@ import Toolbar from '../../components/Toolbar';
 import AddContactModal from '../../components/AddContactModal';
 import * as fileService from '../../services/fileService';
 import AllContacts from '../../components/AllContacts';
-import SearchBar from '../../components/Search';
+//import SearchBar from '../../components/Search';
 import uuid from 'react-native-uuid';
 
 
@@ -21,24 +21,31 @@ const [contacts,setContacts]= useState([]);
 const [searchString, setSearch]=useState('');
 const [phone, setPhone]=useState('');
 const [image, setImage]=useState('');
+const [loadContact,setLoadContact] = useState(false);
 //console.log(contacts);
 
 useEffect(()=> {
-
-  (async () => {
-    const contacts = await fileService.getAllContacts();
-    const sortedContacts = contacts.sort((a,b) => a.name.localeCompare(b.name));
-    if (searchString=== ''){
-      setContacts(sortedContacts);
-    }
-    else{
+  console.log("search:", searchString);
+  if(!loadContact){
+    (async () => {
+      const getContacts = await fileService.getAllContacts();
+      setContacts(getContacts);
+      setLoadContact(true);
+      //setContacts(contacts);
+      //console.log(sortedContacts);
+    })();
+  }
+  const sortedContacts = contacts.sort((a,b) => a.name.localeCompare(b.name));
+  console.log(searchString);
+  if (searchString=== ''){
+    setContacts(sortedContacts);
+  }
+  else{
     const searchLower = searchString.toLowerCase();
     const filteredContacts = contacts.filter(contact => contact.name.toLowerCase().includes(searchLower));
     setContacts(filteredContacts);
   }
-    //setContacts(contacts);
-    //console.log(sortedContacts);
-  })();
+
 },[contacts,searchString]);
 
 
@@ -73,7 +80,7 @@ const addNewContact = async (name,phone,image) => {
 return (
   <View style={styles.container}>
     <Toolbar
-      onSearch={(searchString) =>setSearch(searchString)}
+      onSearch={(search) =>setSearch(search)}
       onAdd={()=> setIsAddModalOpen(true)}
       onDelete={() => fileService.deleteAll()} />
     <AddContactModal

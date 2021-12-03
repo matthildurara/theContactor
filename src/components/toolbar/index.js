@@ -13,19 +13,19 @@ const Toolbar = ({
   onSearch,
 }) => {
 
-  const [searchString,setSearch] = useState('')
+  const [search,setSearch] = useState('')
 return(
     <View styleName= "horizontal" style={styles.toolbar}>
       <TouchableOpacity style={styles.toolbarAction}>
         <TextInput
-          value={searchString}
+          value={search}
           setValue={setSearch}
           onChangeText={setSearch}
           placeholder="Search"
         />
       </TouchableOpacity>
       <TouchableOpacity
-          onPress={()=>onSearch(searchString)}>
+          onPress={()=>onSearch(search)}>
           <Text>
           <MaterialIcons name="search" size={24} color="black" />
           </Text>
